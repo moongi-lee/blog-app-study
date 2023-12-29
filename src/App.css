@@ -1,0 +1,40 @@
+/*  header  */
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    border-bottom: 1px solid grey;
+    padding: 10px 40px;
+    min-height: 40px;
+    align-items: center;
+}
+
+header a{
+    margin: 0px 10px;
+    text-decoration: none;
+    color: grey;
+}
+
+header a:hover, header a:focus {
+    color: black;
+}
+
+/*  footer  */
+footer {
+    background-color: grey;
+    min-height: 40px;
+    padding: 20px 40px;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/*  post list  */
+.post-list {
+    min-height: 90vh;
+    padding: 20px 40px;
+    text-align: center;
+}
