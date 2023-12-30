@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Line Height Example</title>
+	<style>
+		.flex {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100vw;
+			height: 100vw;
+			gap: 10px;
+			align-content: space-around;
+		}
+		.flex__test2 {
+		}
+		.bellow__box {
+			background-color: red;
+			height: 400px;
+			opacity: 0.5;
+		}
+		.test__child {
+			background-color: blue;
+			width: 400px;
+			height: 100px;
+			position: absolute;
+		}
+		.test {
+			height: 100px;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div class="text-container">
+		<p class="line-height-example" style="line-height: 20px;">Line Height 20px</p>
+		<p class="line-height-example" style="line-height: 40px;">Line Height 40px</p>
+		<p class="line-height-example" style="line-height: 60px;">Line Height 60px <br> asdasd</p>
+	</div>
+	<div class="test">
+		<div class="test__child"></div>
+		<div class="test__child"></div>
+		<div class="test__child"></div>
+	</div>
+	<div class="bellow__box">하하하</div>
+
+</body>
+</html>
