@@ -45,6 +45,96 @@
 		<div class="test__child"></div>
 	</div>
 	<div class="bellow__box">하하하</div>
+	<script>
+
+
+		// let testFunction = function () {
+		// 	console.log('일반함수 본체다.')
+		// }
+		//
+		// let testP = new Promise((resolve, reject)=>{
+		// 	setTimeout(()=>{
+		// 		console.log('프로미스 안에 타임아웃이다..')
+		// 		resolve(11)
+		// 	},3000)
+		// })
+		//
+		console.log('일반코드1')
+
+		async function testA() {
+			console.log('어씽크 본체다.')
+			return 11111111111111
+		}
+
+		async function testB() {
+			let result = await testA()
+			console.log('실행될 어씽크다.')
+			console.log(result)
+		}
+
+		testB()
+
+
+
+		let good = new Promise ((resolve, reject)=>{
+			console.log('프로미스 본체다.')
+			resolve()
+		})
+
+		good.then(()=>{
+			console.log('프로미스 덴입니다.')
+		})
+
+		console.log('일반코드2')
+
+
+
+
+		// console.log(test())
+		// test()
+		// console.log(test111())
+
+	// 	async function test111() {
+  //   return 11;
+	// }
+	//
+	// // 다음과 같이 호출
+	// async function printResult() {
+	//     console.log(await test111());
+	// }
+	//
+	// printResult();
+
+
+
+
+
+		// async function testFunc2 () {
+		// 	console.log('어씽크 본체다.')
+		//
+		// 	let good = new Promise (()=>{
+		// 		setTimeout(()=>{
+		// 			console.log('타임아웃입니다.')
+		// 			return 123
+		// 		},5000)
+		// 	})
+		//
+		//
+		// 	let result = await good
+		// 	console.log(result)
+		// }
+		//
+		//
+		// testFunc2()
+		//
+
+
+
+
+
+
+
+	</script>
 
 </body>
 </html>
