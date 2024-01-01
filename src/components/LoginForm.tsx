@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
-import app from "firebaseApp";
+import { app } from "firebaseApp";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {toast} from "react-toastify";
 export default function LoginForm() {

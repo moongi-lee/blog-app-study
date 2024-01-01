@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import PostList from "./PostList";
 import {getAuth, signOut} from "firebase/auth";
-import app from "firebaseApp";
+import { app } from "firebaseApp";
 import {toast} from "react-toastify";
 export default function Profile() {
 
