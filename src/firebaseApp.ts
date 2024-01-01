@@ -16,6 +16,7 @@ const firebaseConfig = {
 
 try {
   app = getApp("app")
+  console.log('기존꺼 가져옴')
 } catch (e) {
   console.log('초기화 다시됨.')
   app = initializeApp(firebaseConfig, "app");

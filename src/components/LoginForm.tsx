@@ -14,7 +14,6 @@ export default function LoginForm() {
     try {
       const auth = getAuth(app);
       await signInWithEmailAndPassword(auth, email, password);
-
       toast.success("로그인 성공");
       navigate("/");
     } catch (error:any) {
