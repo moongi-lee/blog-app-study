@@ -4,7 +4,9 @@ import {db} from "firebaseApp";
 import AuthContext from "../context/AuthContext";
 import {useNavigate, useParams} from "react-router-dom";
 import {toast} from "react-toastify";
-import {PostProps} from "./PostList";
+import {CATEGORIES, CategoryType, PostProps} from "./PostList";
+
+
 
 export default function PostForm() {
 
@@ -13,6 +15,7 @@ export default function PostForm() {
   const [content, setContent] = useState('');
   const {user} = useContext(AuthContext)
   const [ post, setPost ] = useState<PostProps | null>(null);
+  const [ category, setCategory ] = useState<CategoryType>("Frontend");
   const params = useParams();
   const navigate = useNavigate();
 
@@ -33,6 +36,7 @@ export default function PostForm() {
       setTitle(post?.title);
       setSummary(post?.summary);
       setContent(post?.content);
+      setCategory(post?.category as CategoryType);
     }
   }, [post]);
 
@@ -48,9 +52,12 @@ export default function PostForm() {
         title: title,
         summary: summary,
         content: content,
-        updatedAt : new Date()?.toLocaleDateString(),
-        email: user?.email,
-        uid : user?.uid,
+        updatedAt : new Date()?.toLocaleDateString("ko", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }),
+        category: category,
       })
       toast?.success('게시글이 수정되었습니다.');
       navigate(`/posts/${post?.id}`);
@@ -60,8 +67,14 @@ export default function PostForm() {
           title: title,
           summary: summary,
           content: content,
-          createdAt : new Date()?.toLocaleDateString(),
+          createdAt : new Date()?.toLocaleDateString("ko", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }),
           email: user?.email,
+          uid : user?.uid,
+          category: category,
         });
         toast?.success('게시글이 작성되었습니다.');
         navigate('/');
@@ -72,7 +85,7 @@ export default function PostForm() {
     }
   }
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const {
       target: {name, value},
     } = e;
@@ -86,6 +99,9 @@ export default function PostForm() {
     if (name === "content") {
       setContent(value);
     }
+    if (name === "category") {
+      setCategory(value as CategoryType);
+    }
   }
   return (
     <>
@@ -93,6 +109,15 @@ export default function PostForm() {
         <div className="form__block">
           <label htmlFor="title">제목</label>
           <input type="text" name="title" id="title" required onChange={onChange} value={title} />
+        </div>
+        <div className="form__block">
+          <label htmlFor="category">카테고리</label>
+          <select name="catetory" id="category" onChange={onChange} defaultValue={category} >
+            <option value="">카테고리를 선택해주세요</option>
+            {CATEGORIES?.map((category) => (
+                <option value={category} key={category}>{category}</option>
+            ))}
+          </select>
         </div>
         <div className="form__block">
           <label htmlFor="summary">요약</label>
