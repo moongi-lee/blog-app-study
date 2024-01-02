@@ -6,6 +6,12 @@ import AuthContext from "context/AuthContext";
 import {toast} from "react-toastify";
 
 
+export interface CommentsInterFace {
+  content: string;
+  uid: string;
+  email: string;
+  createdAt: string;
+}
 
 interface PostListProps {
   hasNavigation?: boolean;
@@ -22,6 +28,7 @@ export interface PostProps {
   updatedAt?: string;
   uid: string;
   category: CategoryType;
+  comments?: CommentsInterFace[];
 }
 
 type TabType = "all" | "my";
