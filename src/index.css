@@ -163,6 +163,14 @@ footer a:focus {
   color: grey;
 }
 
+.post__no-post {
+  padding: 24px;
+  text-align: center;
+  color: grey ;
+  border: 1px solid #f2f2f2;
+  border-radius: 20px;
+}
+
 /*  post detail  */
 
 .post__detail .post__title {
@@ -234,6 +242,10 @@ footer a:focus {
 .profile__logout:hover,
 .profile__logout:focus {
   color: black;
+}
+
+.post__text--pre-wrap {
+  white-space: pre-wrap;
 }
 
 

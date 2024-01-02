@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, FirebaseApp, getApp } from "firebase/app";
 import "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 export let app: FirebaseApp;
 
@@ -16,12 +17,12 @@ const firebaseConfig = {
 
 try {
   app = getApp("app")
-  console.log('기존꺼 가져옴')
 } catch (e) {
-  console.log('초기화 다시됨.')
   app = initializeApp(firebaseConfig, "app");
 }
 
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
 export default firebase;

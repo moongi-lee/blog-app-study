@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import Router from "./components/Router";
-import { app } from "firebaseApp"
+import {app} from "firebaseApp"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {useEffect, useState} from "react";
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,7 +12,6 @@ import Loader from "./components/Loader";
 
 
 function App() {
-
   const auth = getAuth(app);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!auth?.currentUser);
   const [init, setInit] = useState<boolean>(false);
